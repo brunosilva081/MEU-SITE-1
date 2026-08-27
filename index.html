@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WAGNER 01 | Moda para todos os dias</title>
+	<meta name="description" content="Moda feminina, masculina e infantil com curadoria brasileira.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root { --ink:#18211f; --paper:#f4f0e8; --coral:#ef735f; --sage:#b9c8b1; --line:#c8c4bb; --white:#fffdf8; }
+		* { box-sizing:border-box; }
+		html { scroll-behavior:smooth; }
+		body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Mono', monospace; }
+		button { font:inherit; color:inherit; cursor:pointer; }
+		.topline { background:var(--ink); color:var(--paper); text-align:center; padding:10px 20px; font-size:11px; letter-spacing:.08em; }
+		header { display:flex; align-items:center; justify-content:space-between; max-width:1280px; margin:auto; padding:25px 4vw 20px; border-bottom:1px solid var(--line); }
+		.brand { font-family:'Playfair Display', serif; font-size:28px; letter-spacing:.08em; font-weight:700; }
+		nav { display:flex; gap:28px; font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+		nav a { color:inherit; text-decoration:none; }
+		nav a:hover { color:var(--coral); }
+		.tools { display:flex; gap:8px; }
+		.icon-btn { border:1px solid var(--ink); background:transparent; border-radius:50%; width:38px; height:38px; position:relative; }
+		.icon-btn:hover { background:var(--ink); color:var(--paper); }
+		.count { position:absolute; right:-4px; top:-6px; background:var(--coral); color:var(--ink); width:17px; height:17px; border-radius:50%; font-size:10px; display:grid; place-items:center; }
+		.hero { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1fr 1.15fr; min-height:610px; }
+		.hero-copy { padding:80px 7vw 65px 4vw; display:flex; flex-direction:column; justify-content:space-between; }
+		.eyebrow { font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+		h1 { font-family:'Playfair Display', serif; font-size:clamp(58px, 8vw, 112px); line-height:.87; letter-spacing:-.04em; font-weight:500; margin:50px 0 25px; max-width:560px; }
+		.hero-copy p { font-size:13px; line-height:1.7; max-width:340px; margin:0; }
+		.cta { display:inline-flex; align-items:center; gap:20px; border:0; background:var(--coral); padding:16px 20px; text-transform:uppercase; font-size:11px; letter-spacing:.1em; width:max-content; margin-top:30px; }
+		.cta:hover { background:var(--ink); color:var(--paper); }
+		.hero-art { position:relative; background:var(--sage); overflow:hidden; min-height:500px; }
+		.hero-art img { width:100%; height:100%; object-fit:cover; object-position:center 22%; mix-blend-mode:multiply; filter:saturate(.8); }
+		.art-label { position:absolute; bottom:22px; right:22px; color:var(--paper); background:var(--ink); padding:10px 12px; font-size:10px; }
+		.marquee { max-width:1280px; margin:auto; overflow:hidden; border-bottom:1px solid var(--line); border-top:1px solid var(--line); padding:16px 0; white-space:nowrap; }
+		.marquee span { display:inline-block; animation:slide 24s linear infinite; font-family:'Playfair Display',serif; font-size:22px; padding-right:50px; }
+		@keyframes slide { to { transform:translateX(-100%); } }
+		.shop { max-width:1280px; margin:auto; padding:90px 4vw; }
+		.section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:35px; }
+		h2 { font:500 clamp(34px,5vw,62px)/.95 'Playfair Display',serif; margin:10px 0 0; letter-spacing:-.03em; }
+		.tabs { display:flex; gap:10px; flex-wrap:wrap; }
+		.tab { border:1px solid var(--line); background:transparent; padding:10px 14px; text-transform:uppercase; font-size:10px; letter-spacing:.1em; }
+		.tab.active, .tab:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+		.products { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+		.product { min-width:0; animation:rise .5s ease both; }
+		@keyframes rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+		.product-image { aspect-ratio: .78; overflow:hidden; background:#ddd; position:relative; }
+		.product-image img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+		.product:hover img { transform:scale(1.04); }
+		.heart { position:absolute; top:12px; right:12px; border:0; background:var(--white); width:32px; height:32px; border-radius:50%; }
+		.heart.saved { background:var(--coral); }
+		.product-info { display:flex; justify-content:space-between; align-items:start; gap:10px; padding:13px 2px 8px; font-size:11px; line-height:1.5; }
+		.product-info strong { font-weight:500; }
+		.product-info span { white-space:nowrap; }
+		.manifesto { background:var(--coral); padding:85px 7vw; display:flex; justify-content:center; }
+		.manifesto p { max-width:800px; font:500 clamp(30px,4.2vw,57px)/1.03 'Playfair Display',serif; text-align:center; margin:0; }
+		footer { max-width:1280px; margin:auto; padding:55px 4vw 28px; display:flex; justify-content:space-between; gap:30px; font-size:11px; }
+		footer p { max-width:250px; line-height:1.7; }
+		.newsletter { display:flex; border-bottom:1px solid var(--ink); margin-top:18px; }
+		.newsletter input { border:0; background:transparent; padding:10px 0; outline:0; width:210px; font:inherit; font-size:11px; }
+		.newsletter button { border:0; background:transparent; font-size:18px; }
+		.toast { position:fixed; bottom:22px; left:50%; transform:translate(-50%, 100px); background:var(--ink); color:var(--paper); padding:15px 20px; font-size:11px; transition:transform .3s; z-index:5; }
+		.toast.show { transform:translate(-50%, 0); }
+		@media (max-width:760px) { header { padding:20px 5vw; } nav { display:none; } .hero { display:block; } .hero-copy { min-height:480px; padding:48px 7vw 45px; } h1 { margin:55px 0 20px; } .hero-art { height:430px; min-height:0; } .section-head { display:block; } .tabs { margin-top:25px; } .products { grid-template-columns:repeat(2,1fr); gap:22px 10px; } .shop { padding:65px 5vw; } footer { display:block; padding:45px 5vw 25px; } .footer-right { margin-top:40px; } }
+	</style>
+</head>
+<body>
+	<div class="topline">FRETE GRÁTIS NAS COMPRAS ACIMA DE R$ 399 · PARCELE EM ATÉ 6X</div>
+	<header>
+		<div class="brand">WAGNER 01</div>
+		<nav><a href="#colecao">Coleção</a><a href="#manifesto">Nossa história</a><a href="#contato">Contato</a></nav>
+		<div class="tools"><button class="icon-btn" aria-label="Buscar" onclick="showToast('Busca em breve')">⌕</button><button class="icon-btn" aria-label="Sacola" onclick="toggleCart()">♧<b class="count" id="cart-count">0</b></button></div>
+	</header>
+	<main>
+		<section class="hero">
+			<div class="hero-copy"><div><div class="eyebrow">Edição 04 — Inverno 2025</div><h1>Vista o seu<br><em>agora.</em></h1><p>Peças honestas, matérias que abraçam e um jeito mais leve de escolher o que fica.</p><button class="cta" onclick="document.querySelector('#colecao').scrollIntoView()">Explorar coleção <span>↘</span></button></div><div class="eyebrow">Para ela · para ele · para os pequenos</div></div>
+			<div class="hero-art"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1100&q=85" alt="Pessoa usando look contemporâneo em tons neutros"><div class="art-label">LOOK 01 / ESSENCIAIS</div></div>
+		</section>
+		<div class="marquee"><span>FEITO PARA SER VIVIDO · WAGNER 01 · FEITO PARA SER VIVIDO · WAGNER 01 · </span><span>FEITO PARA SER VIVIDO · WAGNER 01 · FEITO PARA SER VIVIDO · WAGNER 01 · </span></div>
+		<section class="shop" id="colecao"><div class="section-head"><div><div class="eyebrow">Curadoria da semana</div><h2>Escolha seu<br>ritmo.</h2></div><div class="tabs"><button class="tab active" data-filter="todos">Todos</button><button class="tab" data-filter="feminino">Feminino</button><button class="tab" data-filter="masculino">Masculino</button><button class="tab" data-filter="infantil">Infantil</button></div></div><div class="products" id="products"></div></section>
+		<section class="manifesto" id="manifesto"><p>“A melhor roupa é aquela que acompanha a vida — sem pedir licença para você ser quem é.”</p></section>
+	</main>
+	<footer id="contato"><div><div class="brand">WAGNER 01</div><p>Uma casa de roupas para todos os corpos, fases e formas de estar no mundo.</p></div><div class="footer-right"><div class="eyebrow">Receba novidades, sem excesso.</div><form class="newsletter" onsubmit="subscribe(event)"><input type="email" placeholder="seu melhor e-mail" required aria-label="Seu melhor e-mail"><button aria-label="Assinar newsletter">↗</button></form></div></footer>
+	<div class="toast" id="toast"></div>
+	<script>
+		const items = [
+			{name:'Blusa Muguet', price:'R$ 189', cat:'feminino', image:'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=700&q=85'},
+			{name:'Camisa Lino', price:'R$ 249', cat:'masculino', image:'https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=85'},
+			{name:'Conjunto Nuvem', price:'R$ 159', cat:'infantil', image:'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=700&q=85'},
+			{name:'Calça Alfaiataria', price:'R$ 329', cat:'feminino', image:'https://images.unsplash.com/photo-1506629905607-d9c297d5d3f6?auto=format&fit=crop&w=700&q=85'},
+			{name:'Jaqueta Atlas', price:'R$ 419', cat:'masculino', image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85'},
+			{name:'Vestido Pipa', price:'R$ 219', cat:'infantil', image:'https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?auto=format&fit=crop&w=700&q=85'},
+			{name:'Saia Serena', price:'R$ 279', cat:'feminino', image:'https://images.unsplash.com/photo-1583496661160-fb5886a13d27?auto=format&fit=crop&w=700&q=85'},
+			{name:'Camiseta Modo', price:'R$ 119', cat:'masculino', image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85'}
+		];
+		let cart = 0;
+		function render(filter='todos') { document.querySelector('#products').innerHTML = items.filter(item => filter==='todos'||item.cat===filter).map((item,index) => `<article class="product" style="animation-delay:${index*50}ms"><div class="product-image"><img src="${item.image}" alt="${item.name}" loading="lazy"><button class="heart" aria-label="Favoritar ${item.name}" onclick="this.classList.toggle('saved')">♡</button></div><div class="product-info"><strong>${item.name}<br><small>${item.cat}</small></strong><span>${item.price}</span></div><button class="cta" style="margin-top:0;padding:10px 12px;width:100%;justify-content:space-between" onclick="addToCart('${item.name}')">Adicionar à sacola <span>+</span></button></article>`).join(''); }
+		function addToCart(name) { cart++; document.querySelector('#cart-count').textContent=cart; showToast(`${name} adicionada à sacola`); }
+		function toggleCart() { showToast(cart ? `Sua sacola tem ${cart} ${cart===1?'item':'itens'}` : 'Sua sacola está vazia'); }
+		function showToast(message) { const toast=document.querySelector('#toast'); toast.textContent=message; toast.classList.add('show'); clearTimeout(window.toastTimer); window.toastTimer=setTimeout(()=>toast.classList.remove('show'),2600); }
+		function subscribe(event) { event.preventDefault(); event.target.reset(); showToast('Você entrou para a nossa lista.'); }
+		document.querySelectorAll('.tab').forEach(button => button.addEventListener('click', () => { document.querySelector('.tab.active').classList.remove('active'); button.classList.add('active'); render(button.dataset.filter); }));
+		render();
+	</script>
+</body>
+</html>
